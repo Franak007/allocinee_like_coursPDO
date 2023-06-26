@@ -48,4 +48,10 @@ class PDOService
     {
         return $this->password;
     }
+
+    public function findAllMovie(): array
+    {
+        $movies = $this->PDO->query('SELECT * FROM   Movie')->fetchAll();
+        return $movies;
+    }
 }
