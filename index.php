@@ -13,4 +13,4 @@ $test = new MovieRepository();
 // dump($test->findOne());
 // dump($test->findAllMovie());
 
-dump($test->findById(8));
+dump($test->findById(17));
