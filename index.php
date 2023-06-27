@@ -7,4 +7,6 @@ $PDO = new PDOService();
 
 dump($PDO->findAllMovie());
 
+dump(new PDOService());
+
 dump($PDO->findAll());

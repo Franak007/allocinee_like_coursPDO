@@ -55,7 +55,7 @@ class PDOService
         return $this->pdo->query('SELECT * FROM Movie')->fetchAll();
     }
 
-    public function findAll()
+    public function findAll(): Movie
     {
         $query = $this->pdo->query('SELECT * FROM Movie');
         return $query->fetchObject(Movie::class);
