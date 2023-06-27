@@ -6,10 +6,10 @@ use App\Service\PDOService;
 use App\Models\Actor;
 use PDO;
 
-class MovieRepository
+class ActorRepository
 {
     private PDOService $pdoService;
-    private string $queryAll = 'SELECT * FROM Actor';
+    private string $queryAll = 'SELECT * FROM actor';
 
     public function __construct()
     {
@@ -18,7 +18,7 @@ class MovieRepository
     /**
      * @findAllMovie requête la BDD et retourne tous les films sous forme de tableau
      */
-    public function findAllMovie(): array
+    public function findAllActor(): array
     {
         return $this->pdoService->getPDO()->query($this->queryAll)->fetchAll();
     }
