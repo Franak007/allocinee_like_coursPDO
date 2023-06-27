@@ -49,33 +49,4 @@ class PDOService
     {
         return $this->password;
     }
-
-    /**
-     * @findAllMovie requête la BDD et retourne tous les films sous forme de tableau
-     */
-    public function findAllMovie(): array
-    {
-        return $this->pdo->query('SELECT * FROM Movie')->fetchAll();
-    }
-
-
-    /**
-     * findOne Fonction qui requête la BDD pour récupérer tous les films, puis affiche sous forme d'objet le premier film récupéré. 
-     */
-
-    public function findOne(): Movie
-    {
-        $query = $this->pdo->query('SELECT * FROM Movie');
-        return $query->fetchObject(Movie::class);
-    }
-
-    /**
-     * findAll Fonction qui requête la BDD pour récupérer tous les films, puis les affiche sous forme de tableau d'objets.
-     */
-
-    public function findAll(): array
-    {
-        $query = $this->pdo->query('SELECT * FROM Movie');
-        return $query->fetchAll(PDO::FETCH_CLASS, Movie::class);
-    }
 }
