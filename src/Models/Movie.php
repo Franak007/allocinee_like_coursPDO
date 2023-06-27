@@ -18,10 +18,9 @@ class Movie
      * @param string $title 
      * @return self
      */
-    public function setTitle(string $title): self
+    public function setTitle(string $title): void
     {
         $this->title = $title;
-        return $this;
     }
     /**
      * @return DateTime
@@ -35,10 +34,9 @@ class Movie
      * @param DateTime $releaseDate 
      * @return self
      */
-    public function setReleaseDate(DateTime $releaseDate): self
+    public function setReleaseDate(DateTime $releaseDate): void
     {
         $this->releaseDate = $releaseDate;
-        return $this;
     }
 
     /**
