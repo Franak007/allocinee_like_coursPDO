@@ -7,12 +7,5 @@ use App\Repositories\MovieRepositories;
 
 $PDO = new PDOService();
 
-// dump(new PDOService());
-
-dump($PDO->findAllMovie());
-
-dump($PDO->findOne());
-
-dump($PDO->findAll());
-
-dump(new MovieRepository());
+$movieRepository = new MovieRepository;
+dump($movieRepository->findAll());
