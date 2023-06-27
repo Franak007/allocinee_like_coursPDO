@@ -57,4 +57,12 @@ class Movie
             unset($this->actors, $actor);
         }
     }
+
+    /**
+     * @return array
+     */
+    public function getActors(): array
+    {
+        return $this->actors;
+    }
 }
