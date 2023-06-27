@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : lun. 26 juin 2023 à 10:55
+-- Généré le : mar. 27 juin 2023 à 07:21
 -- Version du serveur : 8.0.31
 -- Version de PHP : 8.0.26
 
@@ -47,15 +47,15 @@ INSERT INTO `movie` (`id`, `title`, `release_date`) VALUES
 (5, ' Avengers : L\'Ère d\'Ultron', '2015-11-18'),
 (6, 'Batman : Le Défi', '1992-02-07'),
 (7, 'Le Vieil Homme et l’Enfant', '1967-05-29'),
-(8, 'Les Bronzés font du ski', '2011-07-29'),
-(9, 'Captain America: First Avenger', '1982-03-18'),
-(10, 'Conan le Barbare', '1975-08-17'),
-(11, 'Les Dents de la mer', '2014-12-26'),
-(12, 'Divergente', '1971-11-26'),
-(13, 'L’Inspecteur Harry', '2013-09-21'),
-(14, 'Iron Man 3', '2012-10-21'),
-(15, 'Men in Black 3', '2001-03-21'),
-(16, 'Ocean\'s Eleven', '2009-12-15');
+(8, 'Les Bronzés font du ski', '1979-07-29'),
+(9, 'Captain America: First Avenger', '2011-03-18'),
+(10, 'Conan le Barbare', '1982-08-17'),
+(11, 'Les Dents de la mer', '1975-12-26'),
+(12, 'Divergente', '2014-11-26'),
+(13, 'L’Inspecteur Harry', '1971-09-21'),
+(14, 'Iron Man 3', '2013-10-21'),
+(15, 'Men in Black 3', '2012-03-24'),
+(16, 'Ocean\'s Eleven', '2001-12-15');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
