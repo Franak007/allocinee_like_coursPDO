@@ -3,7 +3,6 @@
 namespace App\Service;
 
 use PDO;
-use App\Models\Movie;
 
 class PDOService
 {
