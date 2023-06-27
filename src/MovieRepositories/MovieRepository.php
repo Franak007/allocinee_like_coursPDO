@@ -24,7 +24,6 @@ class MovieRepository
         return $this->pdoService->getPDO()->query($this->queryAll)->fetchAll();
     }
 
-
     /**
      * findOne Fonction qui requête la BDD pour récupérer tous les films, puis affiche sous forme d'objet le premier film récupéré. 
      */
@@ -41,5 +40,13 @@ class MovieRepository
     public function findAll(): array
     {
         return $this->pdoService->getPDO()->query($this->queryAll)->fetchAll(PDO::FETCH_CLASS, Movie::class);
+    }
+
+    public function findById(int $id): Movie
+    {
+        $query = $this->pdoService->getPDO()->prepare('SELECT * FROM movie WHERE id = ?');
+        $query->bindValue(1, $id);
+        $query->execute();
+        return $query->fetchObject(Movie::class);
     }
 }

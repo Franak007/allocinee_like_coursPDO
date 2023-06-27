@@ -9,6 +9,8 @@ $PDO = new PDOService();
 // dump(new PDOService());
 
 $test = new MovieRepository();
-dump($test->findAll());
-dump($test->findOne());
-dump($test->findAllMovie());
+// dump($test->findAll());
+// dump($test->findOne());
+// dump($test->findAllMovie());
+
+dump($test->findById(8));
