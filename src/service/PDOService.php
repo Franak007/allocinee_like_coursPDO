@@ -50,10 +50,10 @@ class PDOService
         return $this->password;
     }
 
-    // public function findAllMovie(): array
-    // {
-    //     return $this->pdo->query('SELECT * FROM   Movie')->fetchAll();
-    // }
+    public function findAllMovie(): array
+    {
+        return $this->pdo->query('SELECT * FROM Movie')->fetchAll();
+    }
 
     public function findAll()
     {
