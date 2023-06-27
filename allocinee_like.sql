@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : mar. 27 juin 2023 à 14:02
+-- Généré le : mar. 27 juin 2023 à 14:11
 -- Version du serveur : 8.0.31
 -- Version de PHP : 8.0.26
 
@@ -105,7 +105,7 @@ CREATE TABLE IF NOT EXISTS `movie_actor` (
   `id_actor` int NOT NULL,
   `id_movie` int NOT NULL,
   PRIMARY KEY (`id`),
-  KEY `movie_actor_ibfk_1` (`id_actor`),
+  UNIQUE KEY `id_actor` (`id_actor`,`id_movie`),
   KEY `movie_actor_ibfk_2` (`id_movie`)
 ) ENGINE=InnoDB AUTO_INCREMENT=41 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
@@ -114,46 +114,26 @@ CREATE TABLE IF NOT EXISTS `movie_actor` (
 --
 
 INSERT INTO `movie_actor` (`id`, `id_actor`, `id_movie`) VALUES
-(1, 1, 15),
 (2, 1, 4),
+(1, 1, 15),
 (3, 2, 10),
 (4, 3, 8),
 (5, 4, 8),
+(40, 4, 15),
 (6, 5, 4),
 (7, 6, 12),
 (8, 7, 2),
+(39, 7, 9),
 (9, 7, 13),
 (10, 8, 14),
-(11, 9, 16),
-(12, 10, 11),
-(13, 11, 1),
-(14, 12, 3),
-(15, 13, 5),
-(16, 14, 6),
-(17, 15, 12),
-(18, 12, 7),
-(19, 7, 9),
-(20, 4, 15),
-(21, 1, 15),
-(22, 1, 4),
-(23, 2, 10),
-(24, 3, 8),
-(25, 4, 8),
-(26, 5, 4),
-(27, 6, 12),
-(28, 7, 2),
-(29, 7, 13),
-(30, 8, 14),
 (31, 9, 16),
 (32, 10, 11),
-(33, 11, 1),
-(34, 12, 3),
-(35, 13, 5),
-(36, 14, 6),
-(37, 15, 12),
+(13, 11, 1),
+(14, 12, 3),
 (38, 12, 7),
-(39, 7, 9),
-(40, 4, 15);
+(15, 13, 5),
+(16, 14, 6),
+(17, 15, 12);
 
 --
 -- Contraintes pour les tables déchargées
