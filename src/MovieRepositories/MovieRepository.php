@@ -90,4 +90,21 @@ class MovieRepository
     //     return $movie;
     // }
 
+    public function addInMovieActor(Movie $movie): Movie
+    {
+        $actors = $movie->getActors();
+
+        foreach ($actors as $actor) {
+            $query = $this->pdoService->getPDO()->prepare('INSERT INTO movie_actor VALUE (null,:idActor,:idMovie)');
+
+            $idMovie = $movie->getId();
+            $idActor = $actor->getId();
+
+            $query->bindParam(':idMovie', $idMovie);
+            $query->bindParam(':idActor', $idActor);
+
+            $query->execute();
+        }
+        return $movie;
+    }
 }

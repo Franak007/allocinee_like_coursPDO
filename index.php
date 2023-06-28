@@ -56,6 +56,8 @@ $release->setDate(2022, 12, 06);
 $avatar->setTitle("Avatar : La Voie De L'Eau");
 $avatar->setReleaseDate($release);
 
+
+
 // dump($avatar);
 
 // $testMovie->addMovie($avatar);
@@ -65,6 +67,46 @@ $blanc = new Actor();
 $blanc->setFirstName('Michel');
 $blanc->setLastName('Blanc');
 
-// $testActor->insertActor($blanc);
+$costner = new Actor();
+$costner->setFirstName('Kevin');
+$costner->setLastName('Costner');
 
-dump($testActor->findAll());
+// $testActor->insertActor($blanc);
+// $testActor->insertActor($costner);
+
+// dump($testActor->findAll());
+
+$avatar->addActor($blanc);
+$avatar->addActor($costner);
+
+// dump($avatar->getActors());
+dump($PDO);
+
+$movie = $testMovie->findById(17);
+$actor4 = $testActor->findById(2);
+$actor5 = $testActor->findById(19);
+
+$movie->addActor($actor4);
+$movie->addActor($actor5);
+
+dump($movie);
+
+// dump($movie->getActors());
+
+// $testMovie->addInMovieActor($movie);
+
+
+
+
+$movieRepo = new MovieRepository();
+$actorRepo = new ActorRepository();
+
+$act1 = $actorRepo->findById(5);
+$act2 = $actorRepo->findById(9);
+
+$movie = $movieRepo->findById(5);
+$movie->addActor($act1);
+$movie->addActor($act2);
+dump($movie);
+
+// $movieRepo->addInMovieActor($movie);
