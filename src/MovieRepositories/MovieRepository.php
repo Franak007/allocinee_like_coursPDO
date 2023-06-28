@@ -16,22 +16,23 @@ class MovieRepository
         $this->pdoService = new PDOService;
     }
 
-    /**
-     * @findAllMovie requête la BDD et retourne tous les films sous forme de tableau
-     */
-    public function findAllMovie(): array
-    {
-        return $this->pdoService->getPDO()->query($this->queryAll)->fetchAll();
-    }
+    // Les deux fonctions suivantes sont seulement créées pour voir qu'elles existent mais n'ont pas d'intérê.
+    // /**
+    //  * @findAllMovie requête la BDD et retourne tous les films sous forme de tableau
+    //  */
+    // public function findAllMovie(): array
+    // {
+    //     return $this->pdoService->getPDO()->query($this->queryAll)->fetchAll();
+    // }
 
-    /**
-     * findOne Fonction qui requête la BDD pour récupérer tous les films, puis affiche sous forme d'objet le premier film récupéré. 
-     */
+    // /**
+    //  * findOne Fonction qui requête la BDD pour récupérer tous les films, puis affiche sous forme d'objet le premier film récupéré. 
+    //  */
 
-    public function findOne(): Movie
-    {
-        return $this->pdoService->getPDO()->query($this->queryAll)->fetchObject(Movie::class);
-    }
+    // public function findOne(): Movie
+    // {
+    //     return $this->pdoService->getPDO()->query($this->queryAll)->fetchObject(Movie::class);
+    // }
 
     /**
      * findAll Fonction qui requête la BDD pour récupérer tous les films, puis les affiche sous forme de tableau d'objets.

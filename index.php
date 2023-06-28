@@ -4,6 +4,7 @@ include_once __DIR__ . '/vendor/autoload.php';
 use App\Service\PDOService;
 use App\MovieRepositories\MovieRepository;
 use App\MovieRepositories\ActorRepository;
+use App\Models\Actor;
 
 $PDO = new PDOService();
 

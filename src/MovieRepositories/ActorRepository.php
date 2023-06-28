@@ -15,26 +15,28 @@ class ActorRepository
     {
         $this->pdoService = new PDOService;
     }
-    /**
-     * @findAllMovie requête la BDD et retourne tous les films sous forme de tableau
-     */
-    public function findAllActor(): array
-    {
-        return $this->pdoService->getPDO()->query($this->queryAll)->fetchAll();
-    }
 
-    /**
-     * findOne Fonction qui requête la BDD pour récupérer tous les films, puis affiche sous forme d'objet le premier film récupéré. 
-     */
+    // Les deux fonctions suivantes sont seulement créées pour voir qu'elles existent mais n'ont pas d'intérê.
+    // /**
+    //  * @findAllMovie requête la BDD et retourne tous les films sous forme de tableau
+    //  */
+    // public function findAllActor(): array
+    // {
+    //     return $this->pdoService->getPDO()->query($this->queryAll)->fetchAll();
+    // }
 
-    public function findOne(): Actor
-    {
-        return $this->pdoService->getPDO()->query($this->queryAll)->fetchObject(Actor::class);
-    }
+    // /**
+    //  * findOne Fonction qui requête la BDD pour récupérer tous les films, puis affiche sous forme d'objet le premier film récupéré. 
+    //  */
 
-    /**
-     * findAll Fonction qui requête la BDD pour récupérer tous les films, puis les affiche sous forme de tableau d'objets.
-     */
+    // public function findOne(): Actor
+    // {
+    //     return $this->pdoService->getPDO()->query($this->queryAll)->fetchObject(Actor::class);
+    // }
+
+    // /**
+    //  * findAll Fonction qui requête la BDD pour récupérer tous les films, puis les affiche sous forme de tableau d'objets.
+    //  */
 
     public function findAll(): array
     {

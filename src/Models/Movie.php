@@ -7,10 +7,19 @@ use DateTime;
 
 class Movie
 {
+    private int $id;
     private string $title;
     private DateTime $releaseDate;
 
     private array $actors = [];
+
+    /**
+     * @return int
+     */
+    public function getId(): int
+    {
+        return $this->id;
+    }
 
     public function getTitle(): string
     {
@@ -64,5 +73,14 @@ class Movie
     public function getActors(): array
     {
         return $this->actors;
+    }
+
+    /**
+     * @param array $actors 
+     * @return self
+     */
+    public function setActors(array $actors): void
+    {
+        $this->actors = $actors;
     }
 }
