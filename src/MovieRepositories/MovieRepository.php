@@ -50,4 +50,12 @@ class MovieRepository
         $query->execute();
         return $query->fetchObject(Movie::class);
     }
+    public function findByTitle(string $title): array
+    {
+        $query = $this->pdoService->getPDO()->prepare("SELECT * FROM movie WHERE title LIKE :title");
+        $like = '%' . $title . '%';
+        $query->bindParam(':title', $like);
+        $query->execute();
+        return $query->fetchAll(PDO::FETCH_CLASS, Movie::class);
+    }
 }

@@ -10,12 +10,12 @@ $PDO = new PDOService();
 
 // dump(new PDOService());
 
-$test = new MovieRepository();
+$testMovie = new MovieRepository();
 // dump($test->findAll());
 // dump($test->findOne());
 // dump($test->findAllMovie());
-
-dump($test->findById(1));
+// dump($test->findById(1));
+dump($testMovie->findByTitle('Conan'));
 
 $testActor = new ActorRepository();
 
@@ -23,4 +23,4 @@ $testActor = new ActorRepository();
 // dump($testActor->findOne());
 // dump($testActor->findAllActor());
 
-dump($testActor->findById(2));
+// dump($testActor->findById(2));
