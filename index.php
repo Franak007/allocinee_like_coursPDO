@@ -48,3 +48,15 @@ $film1->addActor($actor2);
 $film1->removeActor($actor);
 
 // dump($film1);
+
+$avatar = new Movie();
+$release = new DateTime();
+$release->setDate(2022, 12, 06);
+
+$avatar->setTitle("Avatar : La Voie De L'Eau");
+$avatar->setReleaseDate($release);
+
+dump($avatar);
+
+// $testMovie->addMovie($avatar);
+dump($testMovie->findAll());
