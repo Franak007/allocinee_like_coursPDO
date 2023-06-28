@@ -56,13 +56,15 @@ $release->setDate(2022, 12, 06);
 $avatar->setTitle("Avatar : La Voie De L'Eau");
 $avatar->setReleaseDate($release);
 
-dump($avatar);
+// dump($avatar);
 
 // $testMovie->addMovie($avatar);
-dump($testMovie->findAll());
+// dump($testMovie->findAll());
 
 $blanc = new Actor();
 $blanc->setFirstName('Michel');
 $blanc->setLastName('Blanc');
 
-$testActor->insertActor($blanc);
+// $testActor->insertActor($blanc);
+
+dump($testActor->findAll());
