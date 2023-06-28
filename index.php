@@ -16,7 +16,7 @@ $testMovie = new MovieRepository();
 // dump($test->findOne());
 // dump($test->findAllMovie());
 // dump($test->findById(1));
-dump($testMovie->findByTitle('Conan'));
+// dump($testMovie->findByTitle('Conan'));
 
 $testActor = new ActorRepository();
 
@@ -35,13 +35,14 @@ $actor2->setLastName('Gérard');
 
 // dump($actor);
 
-// $film1 = $testMovie->findById(8);
-$film1 = new Movie();
+$film1 = $testMovie->findById(8);
+// $film1 = new Movie();
 $film1->addActor($actor);
 $film1->addActor($actor2);
 
-dump($film1->getActors());
+// dump($film1);
+// dump($film1->getActors());
 
-$film1->removeActor($actor2);
+$film1->removeActor($actor);
 
-dump($film1->getActors());
+// dump($film1);
