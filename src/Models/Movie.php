@@ -10,7 +10,6 @@ class Movie
     private int $id;
     private string $title;
     private DateTime $releaseDate;
-
     private array $actors = [];
 
     /**

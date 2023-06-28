@@ -91,12 +91,7 @@ $movie->addActor($actor5);
 
 dump($movie);
 
-// dump($movie->getActors());
-
 // $testMovie->addInMovieActor($movie);
-
-
-
 
 $movieRepo = new MovieRepository();
 $actorRepo = new ActorRepository();
