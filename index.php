@@ -60,3 +60,9 @@ dump($avatar);
 
 // $testMovie->addMovie($avatar);
 dump($testMovie->findAll());
+
+$blanc = new Actor();
+$blanc->setFirstName('Michel');
+$blanc->setLastName('Blanc');
+
+$testActor->insertActor($blanc);
