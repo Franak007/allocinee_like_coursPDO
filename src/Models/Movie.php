@@ -62,8 +62,8 @@ class Movie
 
     public function removeActor(Actor $actor): void
     {
-        if (array_search($actor, $this->actors) === true) {
-            unset($this->actors, $actor);
+        if ($key = array_search($actor, $this->actors) !== false) {
+            unset($this->actors[$key]);
         }
     }
 
