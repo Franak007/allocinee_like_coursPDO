@@ -1,6 +1,8 @@
 <?php
 include_once __DIR__ . '/vendor/autoload.php';
 
+echo "Hello World";
+
 use App\Service\PDOService;
 use App\MovieRepositories\MovieRepository;
 use App\MovieRepositories\ActorRepository;
