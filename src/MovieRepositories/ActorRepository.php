@@ -43,12 +43,30 @@ class ActorRepository
         return $this->pdoService->getPDO()->query($this->queryAll)->fetchAll(PDO::FETCH_CLASS, Actor::class);
     }
 
-    public function findById(int $id): Actor|bool
+    // public function findById(int $id): Actor|bool
+    // {
+    //     $query = $this->pdoService->getPDO()->prepare('SELECT * FROM actor WHERE id = ?');
+    //     $query->bindValue(1, $id);
+    //     $query->execute();
+    //     return $query->fetchObject(Actor::class);
+    // }
+
+    public function findById(int $id): bool|Object
     {
-        $query = $this->pdoService->getPDO()->prepare('SELECT * FROM actor WHERE id = ?');
+        $query = $this->pdoService->getPDO()->prepare('SELECT id, first_name as firstName, last_name AS lastName FROM actor WHERE id = ?');
         $query->bindValue(1, $id);
         $query->execute();
-        return $query->fetchObject(Actor::class);
+
+        return $query->fetchObject();
+    }
+
+    public function convertDataActorToObject(Object $dataBaseObject): Actor
+    {
+        $actor = new Actor();
+        $actor->setId($dataBaseObject->id);
+        $actor->setFirstName($dataBaseObject->firstName);
+        $actor->setLastName($dataBaseObject->lastName);
+        return $actor;
     }
 
     public function insertActor(Actor $actor): Actor
@@ -60,6 +78,23 @@ class ActorRepository
         $query->bindParam(':firstName', $firstName);
         $query->bindParam(':lastName', $lastName);
         $query->execute();
+        return $actor;
+    }
+
+    public function updateMovie(Actor $actor): Actor
+    {
+        $query = $this->pdoService->getPDO()->prepare('UPDATE movie set (:first_name,:last_name) WHERE id = :idActor');
+
+        $id = $actor->getId();
+        $firstName = $actor->getFirstName();
+        $lastName = $actor->getLastName();
+
+        $query->bindParam(':idActor', $id);
+        $query->bindParam(':first_name', $firstName);
+        $query->bindParam(':last_name', $lastName);
+
+        $query->execute();
+
         return $actor;
     }
 }

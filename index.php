@@ -13,83 +13,102 @@ $PDO = new PDOService();
 
 // dump(new PDOService());
 
-$testMovie = new MovieRepository();
-// dump($test->findAll());
-// dump($test->findOne());
-// dump($test->findAllMovie());
-// dump($test->findById(1));
-// dump($testMovie->findByTitle('Conan'));
+$repoMovie = new MovieRepository();
+// dump($repoMovie->findAll());
+// dump($repoMovie->findOne());
+// dump($repoMovie->findAllMovie());
+// dump($repoMovie->findById(1));
+// dump($repoMovie->findByTitle('Conan'));
 
-$testActor = new ActorRepository();
+$repoActor = new ActorRepository();
 
-// dump($testActor->findAll());
-// dump($testActor->findOne());
-// dump($testActor->findAllActor());
-// dump($testActor->findById(2));
+// // dump($repoActor->findAll());
+// // dump($repoActor->findOne());
+// // dump($repoActor->findAllActor());
+// // dump($repoActor->findById(2));
 
-$actor = new Actor();
-$actor->setFirstName('Blanc');
-$actor->setLastName('Michel');
+// $actor = new Actor();
+// $actor->setFirstName('Blanc');
+// $actor->setLastName('Michel');
 
-$actor2 = new Actor();
-$actor2->setFirstName('Jugnot');
-$actor2->setLastName('Gérard');
+// $actor2 = new Actor();
+// $actor2->setFirstName('Jugnot');
+// $actor2->setLastName('Gérard');
 
-// dump($actor);
+// // dump($actor);
 
-$film1 = $testMovie->findById(8);
-// $film1 = new Movie();
-$film1->addActor($actor);
-$film1->addActor($actor2);
+// $film1 = $repoMovie->findById(8);
+// // $film1 = new Movie();
+// $film1->addActor($actor);
+// $film1->addActor($actor2);
 
-// dump($film1);
-// dump($film1->getActors());
+// // dump($film1);
+// // dump($film1->getActors());
 
-$film1->removeActor($actor);
+// $film1->removeActor($actor);
 
-// dump($film1);
+// // dump($film1);
 
-$avatar = new Movie();
-$release = new DateTime();
-$release->setDate(2022, 12, 06);
+// $avatar = new Movie();
+// $release = new DateTime();
+// $release->setDate(2022, 12, 06);
 
-$avatar->setTitle("Avatar : La Voie De L'Eau");
-$avatar->setReleaseDate($release);
+
+// $avatar->setTitle("Avatar : La Voie De L'Eau");
+// $avatar->setReleaseDate($release);
+// dump($avatar);
+// dump(gettype($avatar->getReleaseDate()));
 
 // dump($avatar);
 
-// $testMovie->addMovie($avatar);
-// dump($testMovie->findAll());
+// // $repoMovie->addMovie($avatar);
+// // dump($repoMovie->findAll());
 
-$blanc = new Actor();
-$blanc->setFirstName('Michel');
-$blanc->setLastName('Blanc');
+// $blanc = new Actor();
+// $blanc->setFirstName('Michel');
+// $blanc->setLastName('Blanc');
 
-$costner = new Actor();
-$costner->setFirstName('Kevin');
-$costner->setLastName('Costner');
+// $costner = new Actor();
+// $costner->setFirstName('Kevin');
+// $costner->setLastName('Costner');
 
-// $testActor->insertActor($blanc);
-// $testActor->insertActor($costner);
+// // $repoActor->insertActor($blanc);
+// // $repoActor->insertActor($costner);
 
-// dump($testActor->findAll());
+// // dump($repoActor->findAll());
 
-$avatar->addActor($blanc);
-$avatar->addActor($costner);
+// $avatar->addActor($blanc);
+// $avatar->addActor($costner);
 
-// dump($avatar->getActors());
-dump($PDO);
+// // dump($avatar->getActors());
+// dump($PDO);
 
-$movie = $testMovie->findById(17);
-$actor4 = $testActor->findById(2);
-$actor5 = $testActor->findById(19);
+// $movie = $repoMovie->findById(17);
+// $actor4 = $repoActor->findById(2);
+// $actor5 = $repoActor->findById(19);
 
-$movie->addActor($actor4);
-$movie->addActor($actor5);
+// // $movie->addActor($actor4);
+// // $movie->addActor($actor5);
 
-dump($movie);
+// dump($movie);
 
-// $testMovie->addInMovieActor($movie);
+// // $repoMovie->addInMovieActor($movie);
 
-$movieToDelete = $testMovie->findById(7);
-$testMovie->deleteMovie($movieToDelete);
+// $movieToDelete = $repoMovie->findById(17);
+// $repoMovie->deleteMovie($movieToDelete);
+
+$movieToUpdate = $repoMovie->findById(21);
+dump($movieToUpdate);
+// $repoMovie->convertDataMovieToObject($movieToUpdate);
+dump($movieToUpdate);
+// $newTitle = 'AVATAR 2';
+// $movieToUpdate->setTitle($newTitle);
+// dump($movieToUpdate);
+// $repoMovie->updateMovie($movieToUpdate);
+
+$actorToUpdate = $repoActor->findById(5);
+dump($actorToUpdate);
+// $repoActor->convertDataActorToObject($actorToUpdate);
+$newActorName = 'Toto';
+$actorToUpdate->setLastName($newActorName);
+dump($actorToUpdate);

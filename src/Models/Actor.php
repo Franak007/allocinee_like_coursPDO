@@ -51,4 +51,14 @@ class Actor
         $this->lastName = $lastName;
         return $this;
     }
+
+    /**
+     * @param int $id 
+     * @return self
+     */
+    public function setId(int $id): self
+    {
+        $this->id = $id;
+        return $this;
+    }
 }

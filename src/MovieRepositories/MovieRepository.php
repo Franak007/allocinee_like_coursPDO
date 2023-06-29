@@ -43,12 +43,30 @@ class MovieRepository
         return $this->pdoService->getPDO()->query($this->queryAll)->fetchAll(PDO::FETCH_CLASS, Movie::class);
     }
 
-    public function findById(int $id): Movie|bool
+    // public function findById(int $id): Movie|bool
+    // {
+    //     $query = $this->pdoService->getPDO()->prepare('SELECT * FROM movie WHERE id = ?');
+    //     $query->bindValue(1, $id);
+    //     $query->execute();
+    //     return $query->fetchObject(Movie::class);
+    // }
+
+    public function findById(int $id): bool|Object
     {
-        $query = $this->pdoService->getPDO()->prepare('SELECT * FROM movie WHERE id = ?');
+        $query = $this->pdoService->getPDO()->prepare('SELECT id, title, release_date AS releaseDate FROM movie WHERE id = ?');
         $query->bindValue(1, $id);
         $query->execute();
-        return $query->fetchObject(Movie::class);
+
+        return $query->fetchObject();
+    }
+
+    public function convertDataMovieToObject(Object $dataBaseObject): Movie
+    {
+        $movie = new Movie();
+        $movie->setId($dataBaseObject->id);
+        $movie->setTitle($dataBaseObject->title);
+        $movie->setReleaseDate($dataBaseObject->releaseDate);
+        return $movie;
     }
     public function findByTitle(string $title): array
     {
@@ -114,5 +132,24 @@ class MovieRepository
         $idMovie = $movie->getId();
         $query->bindParam(':idMovie', $idMovie);
         $query->execute();
+    }
+
+    public function updateMovie(Movie $movie): Movie
+    {
+        $query = $this->pdoService->getPDO()->prepare('UPDATE movie set (:title,:release_date) WHERE id = :idMovie');
+
+        $id = $movie->getId();
+        $title = $movie->getTitle();
+        $date = $movie->getReleaseDate();
+
+        $releaseDate = $date->format('Y-m-d');
+
+        $query->bindParam(':idMovie', $id);
+        $query->bindParam(':title', $title);
+        $query->bindParam(':release_date', $releaseDate);
+
+        $query->execute();
+
+        return $movie;
     }
 }

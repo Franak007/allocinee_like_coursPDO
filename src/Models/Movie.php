@@ -10,7 +10,9 @@ class Movie
     private int $id;
     private string $title;
     private DateTime $releaseDate;
+
     private array $actors = [];
+
 
     /**
      * @return int
@@ -81,5 +83,15 @@ class Movie
     public function setActors(array $actors): void
     {
         $this->actors = $actors;
+    }
+
+    /**
+     * @param int $id 
+     * @return self
+     */
+    public function setId(int $id): self
+    {
+        $this->id = $id;
+        return $this;
     }
 }
