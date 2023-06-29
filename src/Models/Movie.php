@@ -9,7 +9,7 @@ class Movie
 {
     private int $id;
     private string $title;
-    private DateTime $releaseDate;
+    private DateTime|string $releaseDate;
 
     private array $actors = [];
 
@@ -45,7 +45,7 @@ class Movie
     /**
      * @return DateTime
      */
-    public function getReleaseDate(): DateTime
+    public function getReleaseDate(): DateTime|string
     {
         return $this->releaseDate;
     }

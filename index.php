@@ -102,7 +102,7 @@ dump($convertedMovie);
 $newTitle = 'AVATAR 2';
 $convertedMovie->setTitle($newTitle);
 dump($convertedMovie);
-$repoMovie->updateMovie($convertedMovie);
+// $repoMovie->updateMovie($convertedMovie);
 
 $actorToUpdate = $repoActor->findById(5);
 dump($actorToUpdate);
@@ -111,4 +111,4 @@ dump($convertedActor);
 $newActorName = 'Toto';
 $convertedActor->setLastName($newActorName);
 dump($convertedActor);
-$repoActor->updateActor($convertedActor);
+// $repoActor->updateActor($convertedActor);

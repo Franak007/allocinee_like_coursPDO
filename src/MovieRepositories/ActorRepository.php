@@ -51,6 +51,14 @@ class ActorRepository
     //     return $query->fetchObject(Actor::class);
     // }
 
+    // public function findById(int $id): Actor|bool
+    // {
+    //     $query = $this->pdoService->getPDO()->prepare('SELECT first_name AS firstName, last_name AS lastName FROM actor WHERE id = :idActor');
+    //     $query->bindParam(':idActor', $id);
+    //     $query->execute();
+    //     return $query->fetchObject(Actor::class);
+    // }
+
     public function findById(int $id): bool|Object
     {
         $query = $this->pdoService->getPDO()->prepare('SELECT id, first_name as firstName, last_name AS lastName FROM actor WHERE id = ?');
