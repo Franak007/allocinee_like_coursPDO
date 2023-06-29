@@ -107,4 +107,12 @@ class MovieRepository
         }
         return $movie;
     }
+
+    public function deleteMovie(Movie $movie): void
+    {
+        $query = $this->pdoService->getPDO()->prepare('DELETE FROM movie WHERE id = :idMovie');
+        $idMovie = $movie->getId();
+        $query->bindParam(':idMovie', $idMovie);
+        $query->execute();
+    }
 }

@@ -56,8 +56,6 @@ $release->setDate(2022, 12, 06);
 $avatar->setTitle("Avatar : La Voie De L'Eau");
 $avatar->setReleaseDate($release);
 
-
-
 // dump($avatar);
 
 // $testMovie->addMovie($avatar);
@@ -93,15 +91,5 @@ dump($movie);
 
 // $testMovie->addInMovieActor($movie);
 
-$movieRepo = new MovieRepository();
-$actorRepo = new ActorRepository();
-
-$act1 = $actorRepo->findById(5);
-$act2 = $actorRepo->findById(9);
-
-$movie = $movieRepo->findById(5);
-$movie->addActor($act1);
-$movie->addActor($act2);
-dump($movie);
-
-// $movieRepo->addInMovieActor($movie);
+$movieToDelete = $testMovie->findById(7);
+$testMovie->deleteMovie($movieToDelete);
