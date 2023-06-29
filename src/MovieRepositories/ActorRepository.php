@@ -66,6 +66,7 @@ class ActorRepository
         $actor->setId($dataBaseObject->id);
         $actor->setFirstName($dataBaseObject->firstName);
         $actor->setLastName($dataBaseObject->lastName);
+
         return $actor;
     }
 
@@ -81,9 +82,9 @@ class ActorRepository
         return $actor;
     }
 
-    public function updateMovie(Actor $actor): Actor
+    public function updateActor(Actor $actor): Actor
     {
-        $query = $this->pdoService->getPDO()->prepare('UPDATE movie set (:first_name,:last_name) WHERE id = :idActor');
+        $query = $this->pdoService->getPDO()->prepare('UPDATE actor set first_name = :first_name, last_name = :last_name WHERE id = :idActor');
 
         $id = $actor->getId();
         $firstName = $actor->getFirstName();
@@ -92,9 +93,7 @@ class ActorRepository
         $query->bindParam(':idActor', $id);
         $query->bindParam(':first_name', $firstName);
         $query->bindParam(':last_name', $lastName);
-
         $query->execute();
-
         return $actor;
     }
 }

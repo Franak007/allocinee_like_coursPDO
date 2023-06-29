@@ -29,10 +29,9 @@ class Actor
      * @param string $firstName 
      * @return self
      */
-    public function setFirstName(string $firstName): self
+    public function setFirstName(string $firstName): void
     {
         $this->firstName = $firstName;
-        return $this;
     }
 
     /**
@@ -46,19 +45,17 @@ class Actor
      * @param string $lastName 
      * @return self
      */
-    public function setLastName(string $lastName): self
+    public function setLastName(string $lastName): void
     {
         $this->lastName = $lastName;
-        return $this;
     }
 
     /**
      * @param int $id 
      * @return self
      */
-    public function setId(int $id): self
+    public function setId(int $id): void
     {
         $this->id = $id;
-        return $this;
     }
 }

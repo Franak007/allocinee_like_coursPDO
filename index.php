@@ -6,8 +6,6 @@ echo "Hello World";
 use App\Service\PDOService;
 use App\MovieRepositories\MovieRepository;
 use App\MovieRepositories\ActorRepository;
-use App\Models\Actor;
-use App\Models\Movie;
 
 $PDO = new PDOService();
 
@@ -99,16 +97,18 @@ $repoActor = new ActorRepository();
 
 $movieToUpdate = $repoMovie->findById(21);
 dump($movieToUpdate);
-// $repoMovie->convertDataMovieToObject($movieToUpdate);
-dump($movieToUpdate);
-// $newTitle = 'AVATAR 2';
-// $movieToUpdate->setTitle($newTitle);
-// dump($movieToUpdate);
-// $repoMovie->updateMovie($movieToUpdate);
+$convertedMovie = $repoMovie->convertDataMovieToObject($movieToUpdate);
+dump($convertedMovie);
+$newTitle = 'AVATAR 2';
+$convertedMovie->setTitle($newTitle);
+dump($convertedMovie);
+$repoMovie->updateMovie($convertedMovie);
 
 $actorToUpdate = $repoActor->findById(5);
 dump($actorToUpdate);
-// $repoActor->convertDataActorToObject($actorToUpdate);
+$convertedActor = ($repoActor->convertDataActorToObject($actorToUpdate));
+dump($convertedActor);
 $newActorName = 'Toto';
-$actorToUpdate->setLastName($newActorName);
-dump($actorToUpdate);
+$convertedActor->setLastName($newActorName);
+dump($convertedActor);
+$repoActor->updateActor($convertedActor);

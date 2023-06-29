@@ -65,7 +65,8 @@ class MovieRepository
         $movie = new Movie();
         $movie->setId($dataBaseObject->id);
         $movie->setTitle($dataBaseObject->title);
-        $movie->setReleaseDate($dataBaseObject->releaseDate);
+        $movie->setReleaseDate(new \DateTime($dataBaseObject->releaseDate));
+
         return $movie;
     }
     public function findByTitle(string $title): array
@@ -136,7 +137,7 @@ class MovieRepository
 
     public function updateMovie(Movie $movie): Movie
     {
-        $query = $this->pdoService->getPDO()->prepare('UPDATE movie set (:title,:release_date) WHERE id = :idMovie');
+        $query = $this->pdoService->getPDO()->prepare('UPDATE movie set title = :title, release_date = :release_date WHERE id = :idMovie');
 
         $id = $movie->getId();
         $title = $movie->getTitle();

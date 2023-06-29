@@ -21,7 +21,14 @@ class Movie
     {
         return $this->id;
     }
-
+    /**
+     * @param int $id 
+     * @return self
+     */
+    public function setId(int $id): void
+    {
+        $this->id = $id;
+    }
     public function getTitle(): string
     {
         return $this->title;
@@ -83,15 +90,5 @@ class Movie
     public function setActors(array $actors): void
     {
         $this->actors = $actors;
-    }
-
-    /**
-     * @param int $id 
-     * @return self
-     */
-    public function setId(int $id): self
-    {
-        $this->id = $id;
-        return $this;
     }
 }
