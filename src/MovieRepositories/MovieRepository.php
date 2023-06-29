@@ -153,4 +153,14 @@ class MovieRepository
 
         return $movie;
     }
+
+    public function listActorsInMovie(Movie $movie): Movie
+    {
+        $query = $this->pdoService->getPDO()->prepare('SELECT * FROM movie_actors WHERE id_movie = :idMovie');
+        $movieId = $movie->getId();
+        $query->bindParam(':idMovie', $movieId);
+        $query->execute();
+
+        return $movie;
+    }
 }
